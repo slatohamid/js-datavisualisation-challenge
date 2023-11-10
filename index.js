@@ -14,6 +14,15 @@ parentTables.insertBefore(canvasTable1, table1);
 parentTables.insertBefore(canvasTable2, table2);
 firstHeading.after(canvasLive);
 
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 // table 1
 
 function chartForTable1() {
@@ -48,44 +57,7 @@ function chartForTable1() {
         data: celles.map((row) => row[index]),
         borderColor: "blue",
         borderWidth: 1,
-        backgroundColor: [
-          "#FF0000",
-          "#00FF00",
-          "#0000FF",
-          "#FFFF00",
-          "#FF00FF",
-          "#00FFFF",
-          "#FFA500",
-          "#800080",
-          "#008000",
-          "#000080",
-          "#FFC0CB",
-          "#A52A2A",
-          "#008080",
-          "#FFD700",
-          "#800000",
-          "#808000",
-          "#8B008B",
-          "#808080",
-          "#C0C0C0",
-          "#FFFFFF",
-          "#000000",
-          "#4B0082",
-          "#7FFF00",
-          "#FF4500",
-          "#40E0D0",
-          "#D2691E",
-          "#696969",
-          "#8A2BE2",
-          "#556B2F",
-          "#483D8B",
-          "#2F4F4F",
-          "#20B2AA",
-          "#9370DB",
-          "#7B68EE",
-          "#32CD32",
-          "#00CED1",
-        ],
+        backgroundColor: Array.from({ length: 36 }, () => getRandomColor()),
       })),
     },
     options: {
@@ -132,7 +104,7 @@ function chartForTable2() {
         data: celles.map((row) => row[index]),
         borderColor: "blue",
         borderWidth: 1,
-        backgroundColor: ["#FF0000", "#00FF00", "#0000FF", "#FFFF00"],
+        backgroundColor: Array.from({ length: 36 }, () => getRandomColor()),
       })),
     },
     options: {
@@ -144,8 +116,6 @@ function chartForTable2() {
     },
   });
 }
-
-
 
 chartForTable1();
 
